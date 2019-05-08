@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Main from './components/Main'
+import About from './components/About'
+import User from './components/User'
+import List from './components/List'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+  clickUpdate = (event) => {
+
+  }
+
+  render () {
+    return (
+      <BrowserRouter>
+        <div className="App">
+        <hi>Hello World</hi>
+        <main>
+          <Route exact path = '/' component = {Main}/>
+          <Route exact path = '/about' component = {About}/>
+          <Route path = '/user/:username' component = {User}/>
+          <Route path = '/list' component = {List}/>
+        </main>
+        </div>
+      </BrowserRouter>
+    )
+  }
 }
 
 export default App;
